@@ -25,10 +25,6 @@ get("/store/:id") do
   erb(:store)
 end
 
-get('/brand_error') do
-
-end
-
 post('/create_store') do
   title = params['title']
   location = params['location']

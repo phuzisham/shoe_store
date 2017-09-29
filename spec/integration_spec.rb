@@ -43,3 +43,13 @@ describe('deleting a brand', {:type => :feature}) do
     expect(page).not_to have_content('Croc Larkins')
   end
 end
+
+describe('searching for a store', {:type => :feature}) do
+  it('allows a user to search for a store') do
+    Store.create(:title => 'Croc Larkins', :location => 'Hillsboro')
+    visit('/')
+    fill_in('search', :with => 'Croc Larkins')
+    click_button('Search')
+    expect(page).to have_content('Location: Hillsboro')
+  end
+end
