@@ -25,6 +25,11 @@ get("/store/:id") do
   erb(:store)
 end
 
+get("/brand/:id") do
+  @brand = Brand.find(params["id"])
+  erb(:brand)
+end
+
 post('/create_store') do
   title = params['title']
   location = params['location']
