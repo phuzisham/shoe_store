@@ -14,10 +14,6 @@ body {
   color: #123c69;
 }
 
-.jumbotron h1 {
-  font-size: 80px;
-}
-
 .card {
   padding: 20px;
   background-color: #bab2b5;
@@ -27,8 +23,9 @@ body {
   text-align: center;
 }
 
-input {
-  max-width: 100%;
+.home {
+  text-align: center;
+  margin-bottom: 100px;
 }
 
 a {
