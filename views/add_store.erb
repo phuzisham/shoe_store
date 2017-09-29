@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <h3>Add New Store</h3>
+
+      <form action="/create_store" method="post">
+        <div class="form-group">
+          <label for="title" class="form-label">Store:</label>
+          <input type="text" name="title" class="form-control" id="title" required>
+          <label for="location" class="form-label">Add a location for your store:</label>
+          <input type="text" name="location" class="form-control" id="location" required>
+          <br>
+          <button type="submit" class="btn btn-success">Add Store</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <% if @stores.any?() %>
+      <h3>Here are your stores:</h3>
+
+      <form action="/delete_store" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <% @stores.each() do |store| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="store_ids[]" value="<%= store.id() %>"> <a href= "store/<%= store.id %>"><%= store.title() %></a>
+          </label>
+        </div>
+      <% end %>
+
+        <button type="submit" class="btn btn-danger">Delete Selected Stores</button>
+      </form>
+
+    <% else %>
+
+        <p>There are no stores yet!</p>
+
+    <% end %>
+    </div>
+    <br>
+    <div class="card">
+      <a href="/"><button class="btn home">Return To Homepage</a>
+    </div>
+  </div>
+</div>

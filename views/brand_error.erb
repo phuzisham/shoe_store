@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <video autoplay loop>
+         <source src="/vid/cat.mp4">
+      </video>
+      <br>
+      <h5><a href="/" >Better Try Again</a></h5>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <h3>There were some errors:</h3>
+      <ul>
+        <% @brand.errors().full_messages().each() do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

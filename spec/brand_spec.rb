@@ -8,7 +8,7 @@ describe(Brand) do
   end
   it("ensures that title doesn't already exist") do
     Brand.create({:title => 'Croc Larkins'})
-    brand = Brand.new({:title => 'Croc Larkins'})
+    brand = Brand.new({:title => 'croc larkins'})
     expect(brand.save()).to(eq(false))
   end
 end

@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <a href="/add_store">Add a store!</a>
+    </div>
+    <br>
+    <div class="card">
+      <form action="/search_store" method="post">
+        <div class="form-group">
+          <label for="search" class="form-label">Search Stores:</label>
+          <input type="text" name="search" class="form-control" id="search" required>
+          <br>
+          <button type="submit" class="btn btn-success">Search</button>
+        </div>
+      </form>
+    </div>
+    <br>
+    <div class="card">
+      <% if @stores.any?() %>
+      <h3>Here are your stores:</h3>
+
+      <ul>
+        <% @stores.each() do |store| %>
+          <li><a href="/store/<%= store.id() %>"><%= store.title() %></a> </li>
+        <% end %>
+      </ul>
+
+    <% else %>
+
+        <p>There are no stores yet!</p>
+
+    <% end %>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <a href="/add_brand">Add a shoe brand!</a>
+    </div>
+    <br>
+    <div class="card">
+      <% if @brands.any?() %>
+      <h3>Here are your Brands:</h3>
+
+      <ul>
+        <% @brands.each() do |brand| %>
+          <li><%= brand.title() %></li>
+        <% end %>
+      </ul>
+
+    <% else %>
+
+        <p>There are no Brands yet!</p>
+
+    <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,112 @@
+<div class="row">
+  <div class="col-sm-4">
+    <div class="card">
+      <h1><%= @store.title() %></h1>
+      <h3>Location: <%= @store.location %></h3>
+    </div>
+  </div>
+    <br>
+  <div class='col-sm-4'>
+    <div class="card">
+      <h3>Brands:</h3>
+
+      <% if @store.brands().any?() %>
+        <h3>Here are all the brands in this store:</h3>
+
+        <ul>
+          <% @store.brands().each() do |brand| %>
+            <li><%= brand.title() %></li>
+          <% end %>
+        </ul>
+
+        <% else %>
+          <p>There are no brands for this store yet!</p>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <% if @brands.any?() %>
+      <h3>Add these brands to this store:</h3>
+
+      <form action="/add_brand/<%= @store.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <% @brands.each() do |brand| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>"> <%= brand.title() %>
+          </label>
+        </div>
+      <% end %>
+
+        <button class="btn btn-success" type="submit">Add Brands</button>
+      </form>
+
+    <% else %>
+
+        <p>There are no brands yet!</p>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-4">
+    <br>
+    <div class="card">
+      <h3> Add brands or update location:</h3>
+
+      <form action="/store/<%= @store.id() %>" method="post">
+        <div class="form-group">
+          <label for="brands" class="form-label">Brands:</label>
+          <input type="text" name="brands" class"form-control" id="brands" required>
+          <button type="submit" class="btn btn-success">Add Brands</button>
+        </div>
+      </form>
+      <br>
+      <form action="/store_location/<%= @store.id() %>" method="post">
+        <div class="form-group">
+          <input type="hidden" name="_method" value="patch">
+
+          <label for="location">Location:</label>
+          <input type="text" name="location" id="location" required>
+
+          <button type="submit" class="btn btn-warning">Update Location</button>
+        </div>
+      </form>
+      <br>
+    </div>
+    <br>
+
+  </div>
+  <div class="col-sm-4">
+    <br>
+    <div class="card">
+      <h3>Rename or delete store:</h3>
+      <form action="/store_title/<%= @store.id() %>" method="post">
+        <div class="form-group">
+          <input type="hidden" name="_method" value="patch">
+
+          <label for="title">Rename your store:</label>
+          <input type="text" name="title" id="title" required>
+
+          <button type="submit" class="btn btn-warning">Update Store</button>
+        </div>
+      </form>
+      <br>
+      <form action="/store/<%= @store.id() %>" method="post">
+        <div class="form-group">
+          <input name="_method" type="hidden" value="delete">
+          <label for="delete">Delete your store:</label>
+          <button type="submit" class="btn btn-danger">Delete Store</button>
+        </div>
+      </form>
+    </div>
+    <br>
+    <div class="card">
+      <a href="/"><button class="btn home">Return To Homepage</a>
+    </div>
+  </div>
+</div>
