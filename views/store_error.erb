@@ -12,7 +12,7 @@
     <div class="card">
       <h3>There were some errors:</h3>
       <ul>
-        <% @brand.errors().full_messages().each() do |message| %>
+        <% @store.errors().full_messages().each() do |message| %>
           <li><%= message %></li>
         <% end %>
       </ul>
