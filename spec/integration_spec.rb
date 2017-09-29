@@ -75,3 +75,14 @@ describe('searching for a store', {:type => :feature}) do
     expect(page).to have_content('Location: Hillsboro')
   end
 end
+
+describe('clicking a brand') do
+  it('will display stores that carry tha brand') do
+    store1 = Store.create(:title => 'Croc Larkins', :location => 'Hillsboro')
+    store2 = Store.create(:title => 'The Cobbler\'s', :location => 'Beaverton')
+    brand = Brand.create(:title => 'Croc Larkins', :price => '40')
+    store1.brands.push(brand)
+    store2.brands.push(brand)
+    expect(brand.stores).to(eq([store1, store2]))
+  end
+end
