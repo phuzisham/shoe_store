@@ -43,7 +43,7 @@
 
       <ul>
         <% @brands.each() do |brand| %>
-          <li><%= brand.title() %></li>
+          <li><%= brand.title() %> $<%= '%.02f' % brand.price %></li>
         <% end %>
       </ul>
 
