@@ -1,0 +1,24 @@
+/*@font-face {
+  font-family: frontier;
+  src: url('Final_Frontier.ttf');
+}*/
+
+body {
+  /*font-family: frontier;
+  background-image: url('/img/space_stars.jpg');
+  color: #0E171C;*/
+}
+
+.jumbotron {
+  /*background-color: #987F90;
+  color: #0E171C;*/
+}
+
+.jumbotron h1 {
+  /*font-size: 80px;*/
+}
+
+.card {
+  /*padding: 20px;
+  background-color: #7f627a;*/
+}
