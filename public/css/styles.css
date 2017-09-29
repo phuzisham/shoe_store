@@ -1,9 +1,5 @@
-/*@font-face {
-  font-family: frontier;
-  src: url('Final_Frontier.ttf');
-}*/
-
 body {
+  font-family: 'Marck Script';
   background-color: #2c3531;
   color: #d1e8e2;
   font-size: 20px;
@@ -34,7 +30,7 @@ body {
 
 a {
   color: #ffcb9a;
-  font-size: 20px;
+  font-size: 25px;
 }
 
 input[type='text'], textarea {
