@@ -13,11 +13,12 @@ describe('adding a new store', {:type => :feature}) do
   end
 end
 
-describe('adding a new store', {:type => :feature}) do
-  it('allows a user to add a store') do
+describe('adding a new brand', {:type => :feature}) do
+  it('allows a user to add a brand') do
     visit('/')
     click_link('Add or Delete a shoe brand!')
     fill_in('title', :with => 'Croc Larkins')
+    fill_in('price', :with => '40')
     click_button('Add Brand')
     expect(page).to have_content('Croc Larkins')
   end
@@ -35,7 +36,7 @@ end
 
 describe('deleting a brand', {:type => :feature}) do
   it('allows a user to delete a brand') do
-    brand = Brand.create(:title => 'Croc Larkins')
+    brand = Brand.create(:title => 'Croc Larkins', :price => '40')
     visit('/')
     click_link('Add or Delete a shoe brand!')
     find(:css, "#brandID[value='#{brand.id}']").set(true)
