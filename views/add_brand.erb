@@ -1,0 +1,48 @@
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <h3>Add New Brand</h3>
+
+      <form action="/create_brand" method="post">
+        <div class="form-group">
+          <label for="title" class="form-label">Brand:</label>
+          <input type="text" name="title" class="form-control" id="title" required>
+          <label for="price" class="form-label">Price:</label>
+          <input type="number" name="price" class="form-control" id="price" required>
+          <br>
+          <button type="submit" class="btn btn-success">Add Brand</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <% if @brands.any?() %>
+      <h3>Here are your brands:</h3>
+
+      <form action="/delete_brand" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <% @brands.each() do |brand| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="brand_ids[]" value="<%= brand.id() %>"> <%= brand.title() %>
+          </label>
+        </div>
+      <% end %>
+
+        <button class="btn btn-danger" type="submit">Delete Selected Brands</button>
+      </form>
+
+    <% else %>
+
+        <p>There are no brands yet!</p>
+
+    <% end %>
+
+    </div>
+    <br>
+    <div class="card">
+      <a href="/"><button class="btn home">Return To Homepage</a>
+    </div>
+  </div>
+</div>
