@@ -4,25 +4,33 @@
 }*/
 
 body {
-  /*font-family: frontier;
-  background-image: url('/img/space_stars.jpg');
-  color: #0E171C;*/
+  background-color: #eee2dc;
+  color: #123c69;
+  font-size: 20px;
 }
 
 .jumbotron {
-  /*background-color: #987F90;
-  color: #0E171C;*/
+  background-color: #edc7b7;
+  color: #123c69;
 }
 
 .jumbotron h1 {
-  /*font-size: 80px;*/
+  font-size: 80px;
 }
 
 .card {
   padding: 20px;
-  background-color: #7f627a;
+  background-color: #bab2b5;
 }
 
 .centered {
   text-align: center;
+}
+
+input {
+  max-width: 100%;
+}
+
+a {
+  font-size: 20px;
 }
