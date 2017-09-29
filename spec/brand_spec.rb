@@ -3,8 +3,8 @@ require('spec_helper')
 describe(Brand) do
   it { should have_and_belong_to_many(:stores) }
 
-  it("ensures the length of title is at most 40 characters") do
-    brand = Brand.new({:title => "a".*(41)})
+  it("ensures the length of title is at most 100 characters") do
+    brand = Brand.new({:title => "a".*(101)})
     expect(brand.save()).to(eq(false))
   end
 

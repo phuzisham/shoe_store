@@ -1,6 +1,6 @@
 class Brand < ActiveRecord::Base
   has_and_belongs_to_many(:stores)
-  validates(:title, {:presence => true, :length => {:maximum => 40}})
+  validates(:title, {:presence => true, :length => {:maximum => 100}})
   validates(:title, uniqueness: { case_sensitive: false })
   before_save(:upcase_title)
 
