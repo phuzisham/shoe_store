@@ -22,3 +22,24 @@ describe('adding a new store', {:type => :feature}) do
     expect(page).to have_content('Croc Larkins')
   end
 end
+
+describe('deleting a store', {:type => :feature}) do
+  it('allows a user to delete a store') do
+    Store.create(:title => 'Croc Larkins')
+    visit('/')
+    click_link('Croc Larkins')
+    click_button('Delete Store')
+    expect(page).not_to have_content('Croc Larkins')
+  end
+end
+
+describe('deleting a brand', {:type => :feature}) do
+  it('allows a user to delete a brand') do
+    brand = Brand.create(:title => 'Croc Larkins')
+    visit('/')
+    click_link('Add or Delete a shoe brand!')
+    find(:css, "#brandID[value='#{brand.id}']").set(true)
+    click_button('Delete Selected Brands')
+    expect(page).not_to have_content('Croc Larkins')
+  end
+end
