@@ -13,6 +13,27 @@ describe('adding a new store', {:type => :feature}) do
   end
 end
 
+describe('update a store', {:type => :feature}) do
+  it('allows a user to update a store title') do
+    store = Store.create(:title => 'Croc Larkins')
+    visit('/')
+    click_link('Croc Larkins')
+    fill_in('title', :with => 'Jim\'s Cobblery')
+    click_button('Update Store')
+    expect(page).to have_content('Jim\'s Cobblery')
+  end
+
+  it('allows a user to update a store location') do
+    store = Store.create(:title => 'Croc Larkins')
+    store.update(:location => 'Hillsboro')
+    visit('/')
+    click_link('Croc Larkins')
+    fill_in('location', :with => 'Hillsboro')
+    click_button('Update Location')
+    expect(page).to have_content('Hillsboro')
+  end
+end
+
 describe('adding a new brand', {:type => :feature}) do
   it('allows a user to add a brand') do
     visit('/')
