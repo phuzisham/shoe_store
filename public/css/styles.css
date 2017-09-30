@@ -6,6 +6,7 @@ body {
 }
 
 .jumbotron {
+  font-family: 'Marck Script';
   height: 40px;
   background-color: #d1e8e2;
   color: #2c3531;
@@ -47,6 +48,7 @@ body {
 a {
   color: #b58151;
   font-size: 25px;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 input[type='text'], textarea {
@@ -59,4 +61,8 @@ input[type='number'], textarea {
   color: #123;
   background-color: #d1e8e2;
   border-style: none;
+}
+
+video {
+  max-width: 100%;
 }

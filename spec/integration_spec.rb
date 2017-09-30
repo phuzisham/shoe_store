@@ -86,3 +86,12 @@ describe('clicking a brand') do
     expect(brand.stores).to(eq([store1, store2]))
   end
 end
+
+describe('clicking a store') do
+  it('will display store detail page') do
+    store1 = Store.create(:title => 'Croc Larkins', :location => 'Hillsboro')
+    id = store1.id
+    visit("/")
+    expect(page).to have_content('Location: Hillsboro')
+  end
+end

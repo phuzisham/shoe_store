@@ -95,12 +95,15 @@ end
 
 patch('/add_brand/:id') do
   @store = Store.find(params['id'])
-  brand_ids = params.fetch('brand_ids')
-  brand_ids.each do |i|
-    brand = Brand.find(i)
-    @store.brands.push(brand)
+  if params.has_key?('brand_ids')
+    params.fetch('brand_ids').each do |i|
+      brand = Brand.find(i)
+      @store.brands.push(brand)
+      redirect("/store/#{@store.id}")
+    end
+    else
+      erb(:search_fail)
   end
-  redirect("/store/#{@store.id}")
 end
 
 delete("/delete_store") do
