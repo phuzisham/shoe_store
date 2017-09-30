@@ -107,19 +107,31 @@ patch('/add_brand/:id') do
 end
 
 delete("/delete_store") do
-  store_ids = params.fetch('store_ids')
-  store_ids.each do |i|
-    Store.find(i).delete()
+  if params.has_key?('store_ids')
+    params.fetch('store_ids').each do |i|
+      store_ids = params.fetch('store_ids')
+      store_ids.each do |i|
+        Store.find(i).delete()
+      end
+      redirect('/add_store')
+    end
+    else
+      erb(:search_fail)
   end
-  redirect('/add_store')
 end
 
 delete("/delete_brand") do
-  brand_ids = params.fetch('brand_ids')
-  brand_ids.each do |i|
-    Brand.find(i).delete()
+  if params.has_key?('brand_ids')
+    params.fetch('brand_ids').each do |i|
+      store_ids = params.fetch('brand_ids')
+      store_ids.each do |i|
+        Brand.find(i).delete()
+      end
+      redirect('/add_brand')
+    end
+    else
+      erb(:search_fail)
   end
-  redirect('/add_brand')
 end
 
 delete("/store/:id") do
