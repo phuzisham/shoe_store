@@ -1,12 +1,18 @@
 # _Shoe Store Tracker_
 
-#### _A program that allows a user to add and track shoe stores and she brands. Last Modified: 09.29.2017_
+#### _A program that allows a user to add and track shoe stores and she brands._
+
+#### _Created: 09.29.2017_
+#### _Last Modified: 01.07.2018_
 
 #### By _David Hale_
 
 ## Description
 
 _Brands and Stores are linked through database tables._
+
+
+![Screenshot](https://github.com/phuzisham/shoe_store/blob/master/img/cap.png "Screen Capture")
 
 ## Specs
 
